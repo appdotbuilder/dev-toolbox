@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -121,7 +120,7 @@ export function Base64Tool() {
         {/* Encode Section */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-slate-700">Text to Encode</h3>
+            <h3 className="text-lg font-semibold text-foreground">Text to Encode</h3>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -160,7 +159,7 @@ Example: Hello, World!"
 
         {/* Encode Results */}
         {encodeResult && (
-          <Card className={`border-2 ${encodeResult.result ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'}`}>
+          <Card className={`border-2 ${encodeResult.result ? 'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20' : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20'}`}>
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-base">
                 {encodeResult.result ? (
@@ -180,7 +179,7 @@ Example: Hello, World!"
               {encodeResult.result ? (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-medium text-green-800">Base64 Result:</h4>
+                    <h4 className="font-medium text-green-800 dark:text-green-200">Base64 Result:</h4>
                     <Button
                       variant="outline"
                       size="sm"
@@ -190,15 +189,15 @@ Example: Hello, World!"
                       📋 Copy
                     </Button>
                   </div>
-                  <div className="bg-white border rounded-md p-4 overflow-x-auto">
-                    <pre className="text-sm font-mono text-slate-700 whitespace-pre-wrap break-all">
+                  <div className="bg-white dark:bg-slate-800 border rounded-md p-4 overflow-x-auto">
+                    <pre className="text-sm font-mono text-slate-700 dark:text-slate-300 whitespace-pre-wrap break-all">
                       {encodeResult.result}
                     </pre>
                   </div>
                 </div>
               ) : (
-                <Alert className="border-red-200">
-                  <AlertDescription className="text-red-700">
+                <Alert className="border-red-200 dark:border-red-800">
+                  <AlertDescription className="text-red-700 dark:text-red-300">
                     <strong>Encoding Error:</strong> {encodeResult.error_message}
                   </AlertDescription>
                 </Alert>
@@ -212,7 +211,7 @@ Example: Hello, World!"
         {/* Decode Section */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-slate-700">Base64 to Decode</h3>
+            <h3 className="text-lg font-semibold text-foreground">Base64 to Decode</h3>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -251,7 +250,7 @@ Example: SGVsbG8sIFdvcmxkIQ=="
 
         {/* Decode Results */}
         {decodeResult && (
-          <Card className={`border-2 ${decodeResult.result ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'}`}>
+          <Card className={`border-2 ${decodeResult.result ? 'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20' : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20'}`}>
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-base">
                 {decodeResult.result ? (
@@ -271,7 +270,7 @@ Example: SGVsbG8sIFdvcmxkIQ=="
               {decodeResult.result ? (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-medium text-green-800">Decoded Text:</h4>
+                    <h4 className="font-medium text-green-800 dark:text-green-200">Decoded Text:</h4>
                     <Button
                       variant="outline"
                       size="sm"
@@ -281,15 +280,15 @@ Example: SGVsbG8sIFdvcmxkIQ=="
                       📋 Copy
                     </Button>
                   </div>
-                  <div className="bg-white border rounded-md p-4 overflow-x-auto">
-                    <pre className="text-sm font-mono text-slate-700 whitespace-pre-wrap">
+                  <div className="bg-white dark:bg-slate-800 border rounded-md p-4 overflow-x-auto">
+                    <pre className="text-sm font-mono text-slate-700 dark:text-slate-300 whitespace-pre-wrap">
                       {decodeResult.result}
                     </pre>
                   </div>
                 </div>
               ) : (
-                <Alert className="border-red-200">
-                  <AlertDescription className="text-red-700">
+                <Alert className="border-red-200 dark:border-red-800">
+                  <AlertDescription className="text-red-700 dark:text-red-300">
                     <strong>Decoding Error:</strong> {decodeResult.error_message}
                   </AlertDescription>
                 </Alert>

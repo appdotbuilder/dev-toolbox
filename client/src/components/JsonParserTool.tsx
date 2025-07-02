@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -80,7 +79,7 @@ export function JsonParserTool() {
       {/* Input Section */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-slate-700">JSON Input</h3>
+          <h3 className="text-lg font-semibold text-foreground">JSON Input</h3>
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -119,7 +118,7 @@ Example: {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}"
 
       {/* Results Section */}
       {result && (
-        <Card className={`border-2 ${result.is_valid ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'}`}>
+        <Card className={`border-2 ${result.is_valid ? 'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20' : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20'}`}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-base">
               {result.is_valid ? (
@@ -139,7 +138,7 @@ Example: {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}"
             {result.is_valid && result.pretty_json ? (
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-medium text-green-800">Pretty-printed JSON:</h4>
+                  <h4 className="font-medium text-green-800 dark:text-green-200">Pretty-printed JSON:</h4>
                   <Button
                     variant="outline"
                     size="sm"
@@ -149,15 +148,15 @@ Example: {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}"
                     📋 Copy
                   </Button>
                 </div>
-                <div className="bg-white border rounded-md p-4 overflow-x-auto">
-                  <pre className="text-sm font-mono text-slate-700 whitespace-pre-wrap">
+                <div className="bg-white dark:bg-slate-800 border rounded-md p-4 overflow-x-auto">
+                  <pre className="text-sm font-mono text-slate-700 dark:text-slate-300 whitespace-pre-wrap">
                     {result.pretty_json}
                   </pre>
                 </div>
               </div>
             ) : (
-              <Alert className="border-red-200">
-                <AlertDescription className="text-red-700">
+              <Alert className="border-red-200 dark:border-red-800">
+                <AlertDescription className="text-red-700 dark:text-red-300">
                   <strong>Parse Error:</strong> {result.error_message}
                 </AlertDescription>
               </Alert>
