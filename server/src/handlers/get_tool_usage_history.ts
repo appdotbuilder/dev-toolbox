@@ -1,10 +1,20 @@
 
+import { db } from '../db';
+import { toolUsageTable } from '../db/schema';
 import { type ToolUsage } from '../schema';
+import { desc } from 'drizzle-orm';
 
 export async function getToolUsageHistory(): Promise<ToolUsage[]> {
-    // This is a placeholder declaration! Real code should be implemented here.
-    // The goal of this handler is to fetch tool usage history from the database.
-    // This can be used to show recent tool usage to users for convenience.
-    
-    return [];
+  try {
+    // Fetch all tool usage records ordered by most recent first
+    const results = await db.select()
+      .from(toolUsageTable)
+      .orderBy(desc(toolUsageTable.created_at))
+      .execute();
+
+    return results;
+  } catch (error) {
+    console.error('Failed to fetch tool usage history:', error);
+    throw error;
+  }
 }
